@@ -8,6 +8,7 @@
 
 uint8_t i;
 struct repeating_timer timer;
+static volatile uint32_t last_time = 0;
 
 void botinit(){
     gpio_init(5);
@@ -24,12 +25,15 @@ void ledinit(){
 }
 
 static void gpio_irq_handler(uint gpio, uint32_t events){
-    for(i = 11; i < 14 ; i++){
-    gpio_put(i, 1);
-    }
+    uint32_t current_time = to_us_since_boot(get_absolute_time());
+    if(current_time - last_time > 200000){
+        last_time = current_time;
+            for(i = 11; i < 14 ; i++){
+            gpio_put(i, 1);
+            }
+    }    
+
 }
-
-
 
 int main()
 {   
