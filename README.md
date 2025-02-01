@@ -44,7 +44,6 @@ O objetivo principal deste projeto é demonstrar:
   - Amarelo: Conectado ao GPIO 12
   - Verde: Conectado ao GPIO 13
 - **Resistores de 330Ω:** Um para cada LED
-- **Protoboard e Jumpers**
 
 ## Requisitos de Software
 - **SDK do Raspberry Pi Pico**
